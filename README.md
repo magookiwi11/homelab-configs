@@ -115,6 +115,7 @@ Running on a separate dedicated workstation (not the Qotom). See [`AI-STACK.md`]
 ---
 
 ## Repo structure
+```
 homelab-configs/
 ├── README.md
 ├── AI-STACK.md
@@ -138,6 +139,7 @@ homelab-configs/
 │   └── pool-layout.md
 └── network/
 └── opnsense-notes.md---
+```
 
 ## Notes
 
