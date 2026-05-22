@@ -1,0 +1,26 @@
+# Secret files — never commit these
+.env
+*.env
+!*.env.example
+
+# Container runtime data — local only, not for version control
+**/data/
+**/config/
+**/logs/
+**/db/
+**/var/
+**/appdata/
+**/letsencrypt/
+
+# Pterodactyl MySQL client config (may contain credentials)
+**/mysql-client.cnf
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor noise
+.vscode/
+.idea/
+*.swp
+*.swo

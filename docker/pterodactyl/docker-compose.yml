@@ -1,0 +1,44 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: pterodactyl-db
+    restart: always
+    command: --require_secure_transport=OFF --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: panel
+      MYSQL_USER: pterodactyl
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_HOST: "%"
+    volumes:
+      - ./db:/var/lib/mysql
+  cache:
+    image: redis:alpine
+    container_name: pterodactyl-cache
+    restart: always
+  panel:
+    image: ghcr.io/pterodactyl/panel:latest
+    container_name: pterodactyl-panel
+    restart: always
+    ports:
+      - 8090:80
+    environment:
+      APP_URL: ${APP_URL}
+      APP_TIMEZONE: ${APP_TIMEZONE}
+      APP_SERVICE_AUTHOR: ${PANEL_ADMIN_EMAIL}
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_DATABASE: panel
+      DB_USERNAME: pterodactyl
+      DB_PASSWORD: ${DB_PASSWORD}
+      REDIS_HOST: cache
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      QUEUE_DRIVER: redis
+    volumes:
+      - ./var:/app/var
+      - ./logs:/app/storage/logs
+      - ./mysql-client.cnf:/root/.my.cnf:ro
+    depends_on:
+      - database
+      - cache

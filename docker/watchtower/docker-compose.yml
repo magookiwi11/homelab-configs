@@ -1,0 +1,12 @@
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true                   # remove old images after update
+      - WATCHTOWER_SCHEDULE=0 0 3 * * *           # run daily at 3 AM
+      - WATCHTOWER_EXCLUDE_CONTAINERS=portainer   # keep Portainer pinned
+      - DOCKER_API_VERSION=1.40
