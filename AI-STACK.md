@@ -79,6 +79,8 @@ Used daily as part of development and automation workflow:
 
 ---
 
+```
+
 ## Architecture diagram
 ┌─────────────────────────────────────────────────┐
 │              Workstation (dual RTX 5090)        │
@@ -96,6 +98,9 @@ Used daily as part of development and automation workflow:
 │  Fabric (CLI prompts)   MCP (multi-agent tools) │
 │  Claude Code / Gemini CLI / Codex               │
 └─────────────────────────────────────────────────┘
+
+```
+
 ---
 
 ## Notes
