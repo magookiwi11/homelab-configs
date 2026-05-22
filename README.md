@@ -138,8 +138,11 @@ homelab-configs/
 ├── nas/
 │   └── pool-layout.md
 └── network/
-└── opnsense-notes.md---
+└── opnsense-notes.md
+
 ```
+
+---
 
 ## Notes
 
