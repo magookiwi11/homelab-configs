@@ -11,12 +11,12 @@ Personal homelab running on a **Qotom Q20331G9-S10** — a fanless, purpose-buil
 | **Host** | Qotom Q20331G9-S10 |
 | **CPU** | Intel Atom C3758R — 8 cores / 8 threads @ 2.4 GHz, 26W TDP |
 | **RAM** | 64 GB ECC DDR4 |
-| **Boot drive** | 1 TB NVMe M.2 Gen3 (in use) + 1× M.2 free |
-| **Additional storage** | 2× SATA 3.0 ports |
-| **Network** | 4× 10GbE SFP+ · 5× 2.5G RJ45 · 1× SFF-8087 MiniSAS · 1× RS-232 |
+| **Boot drive** | 1 TB NVMe M.2 Gen3 (in use) + 1x M.2 free |
+| **Additional storage** | 2x SATA 3.0 ports |
+| **Network** | 4x 10GbE SFP+ · 5x 2.5G RJ45 · 1x SFF-8087 MiniSAS · 1x RS-232 |
 | **Form factor** | Fanless / passive cooling |
 
-**NAS expansion:** 4× WD 8TB drives in a 3D-printed enclosure connected via SFF-8087 DAS.
+**NAS expansion:** 4x WD 8TB drives in a 3D-printed enclosure connected via SFF-8087 DAS.
 Power: ALITOVE 12V brick → picoPSU-80 → drives and fans.
 
 ---
@@ -55,15 +55,15 @@ All workloads run as VMs on ESXi. Autostart order: OPNsense → TrueNAS → Dock
 - **IDS/IPS:** Enabled
 - **VPN:** Configured
 - **QAT offload:** Enabled (hardware crypto acceleration via C3758R)
-- **SSL cert:** Let's Encrypt via `os-acme-client` + DuckDNS (`maximo-opnsense.duckdns.org`)
+- **SSL cert:** Let's Encrypt via `os-acme-client` + DuckDNS
 - **Switching:** 10GbE SFP+ for inter-VM traffic; 2.5G RJ45 for client devices
 
 ---
 
 ## Storage: TrueNAS SCALE
 
-- **Pool:** NuggetNAS — RAIDZ1 across 4× WD 8TB drives
-- **Drive connection:** RDM (Raw Device Mapping) via SATA controller passthrough from ESXi
+- **Pool:** NuggetNAS — RAIDZ1 across 4x WD 8TB drives
+- **Drive connection:** RDM via SATA controller passthrough from ESXi
 - **Shares:** SMB and NFS configured
 - **Snapshots:** ZFS snapshot schedule configured
 - **Data integrity:** ECC RAM + ZFS checksumming
@@ -116,10 +116,10 @@ Running on a separate dedicated workstation (not the Qotom). See [`AI-STACK.md`]
 
 ## Repo structure
 homelab-configs/
-├── README.md               <- you are here
-├── AI-STACK.md             <- dedicated AI/LLM environment docs
+├── README.md
+├── AI-STACK.md
 ├── docker/
-│   ├── README.md           <- Docker services overview
+│   ├── README.md
 │   ├── jellyfin/
 │   ├── glances/
 │   ├── jellyseerr/
@@ -137,8 +137,7 @@ homelab-configs/
 ├── nas/
 │   └── pool-layout.md
 └── network/
-└── opnsense-notes.md
----
+└── opnsense-notes.md---
 
 ## Notes
 
